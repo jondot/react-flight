@@ -1,0 +1,14 @@
+exports[`flight integration 1`] = `
+Object {
+  "frames": Array [
+    Object {
+      "duration": 500,
+    },
+    Object {
+      "duration": 500,
+    },
+  ],
+  "movements": "[[{\"root\":\"-test-\",\"target\":{\"style\":{\"backgroundColor\":\"#95A2AA\",\"left\":777,\"top\":60,\"width\":130,\"height\":10},\"ref\":\"-test-\",\"name\":\"line1\"},\"duration\":500},{}],[{\"root\":\"-test-\",\"target\":{\"style\":{\"borderRadius\":5,\"backgroundColor\":\"#E6ECF0\",\"left\":0,\"top\":75,\"width\":180,\"height\":10},\"ref\":\"-test-\",\"name\":\"line2\"},\"duration\":500},{}],[{\"root\":\"-test-\",\"target\":{\"style\":{\"borderRadius\":8,\"width\":16,\"height\":16,\"backgroundColor\":\"#79CD15\",\"left\":110,\"top\":90},\"ref\":\"-test-\",\"name\":\"circ1\"},\"duration\":500},{}]]",
+  "timelines": 3,
+}
+`;

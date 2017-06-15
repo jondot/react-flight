@@ -1,0 +1,14 @@
+{
+  "extends":  [
+  "standard",
+  "standard-flow",
+  "standard-jsx"
+  ],
+  "rules":{
+    "space-before-function-paren": 0,
+    "comma-dangle":0
+  },
+  "env":{
+    "jest": true
+  }
+}
