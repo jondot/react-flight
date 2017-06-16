@@ -1,14 +1,13 @@
 {
   "name": "react-flight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "build:lib": "babel src --out-dir . && rm -rf __tests__",
-    "build:umd:min": "NODE_ENV=production webpack",
-    "build:umd": "NODE_ENV=development webpack",
+    "build:umd:min": "NODE_ENV=production webpack --display-modules",
+    "build:umd": "NODE_ENV=development webpack --display-modules",
     "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
-    "prepublish": "npm run build",
     "release": "npm run build && npm publish",
     "test": "node --harmony-async-await node_modules/.bin/jest",
     "watch": "node --harmony-async-await node_modules/.bin/jest --watch"
@@ -20,6 +19,7 @@
     "velocity-animate": "^1.5.0"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-jest": "^17.0.0",

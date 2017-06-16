@@ -90,6 +90,9 @@ var walk = function walk(c) {
       }
     }
 
+    // all this className circus is just to pick a name we can treat
+    // as a grouping key when later locating pairs (or more) of connected
+    // components.
     if (resolvedChild.props && resolvedChild.props.className && resolvedChild.props.style) {
       var _styles = resolvedChild.props.style;
       var name = resolvedChild.props.className || resolvedChild.props.name;
@@ -126,7 +129,6 @@ var Director = function () {
       };
     });
 
-    console.log('map', stylemap);
     var movements = (0, _reduce2.default)((0, _keys2.default)(stylemap), function (acc, k) {
       var movement = (0, _map2.default)(frames, function (f, i) {
         var to = stylemap[k].styles[i + 1];
@@ -136,19 +138,19 @@ var Director = function () {
 
         if (to) {
           return {
-            root: comp,
+            root: { namespace: comp.namespace },
             target: { style: to, ref: ref, name: name },
             duration: f.duration
           };
         }
-        return {};
+        return {}; // one extra null movement
       });
-
-      //todo this should be array of arrays
 
       return [].concat((0, _toConsumableArray3.default)(acc), [movement]);
     }, []);
 
+    this.frames = frames;
+    this.movements = movements;
     this.composer = composer(movements);
   }
 

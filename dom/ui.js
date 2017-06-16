@@ -39,9 +39,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*
- * <Rect bounds={{x,y,w,h}} radius={10}  />
-*/
 var Rect = function (_Component) {
   (0, _inherits3.default)(Rect, _Component);
 
@@ -82,6 +79,8 @@ Rect.contextTypes = {
   source: _propTypes2.default.bool
 };
 
+//XXX todo
+
 var Image = function () {
   function Image() {
     (0, _classCallCheck3.default)(this, Image);
@@ -93,6 +92,10 @@ var Image = function () {
   }]);
   return Image;
 }();
+
+// Yea, not really an oval, more of a circle, but can be an oval
+// if you give me another radius..
+
 
 var Oval = function (_Component2) {
   (0, _inherits3.default)(Oval, _Component2);

@@ -10,6 +10,7 @@ const config = {
   externals: {
     lodash: true,
     react: true,
+    jquery: true,
   },
   module: {
     loaders: [

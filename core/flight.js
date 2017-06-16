@@ -53,7 +53,6 @@ var flight = function flight(Container, Controls) {
     function Flight(props) {
       (0, _classCallCheck3.default)(this, Flight);
 
-      //TODO better randomness
       var _this = (0, _possibleConstructorReturn3.default)(this, (Flight.__proto__ || (0, _getPrototypeOf2.default)(Flight)).call(this, props));
 
       _this.play = function () {
@@ -82,7 +81,6 @@ var flight = function flight(Container, Controls) {
     (0, _createClass3.default)(Flight, [{
       key: 'getChildContext',
       value: function getChildContext() {
-        console.log('getting c', this.state.director);
         return { director: this.state.director };
       }
     }, {
