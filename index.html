@@ -1,6 +1,183 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico"><title>React App</title><link rel="stylesheet" href="bootstrap.css" media="screen" title="no title" charset="utf-8"><link rel="stylesheet" href="prism.css" media="screen" title="no title" charset="utf-8"><link href="https://fonts.googleapis.com/css?family=Overpass|Source+Sans+Pro:200,700" rel="stylesheet"><style media="screen">body{background-image:-webkit-linear-gradient(bottom,#48c9d0 0,#3498db 100%);background-image:-o-linear-gradient(bottom,#48c9d0 0,#3498db 100%);background-image:linear-gradient(to top,#48c9d0 0,#3498db 100%);font-family:'Source Sans Pro',Helvetica,Arial,sans-serif;font-size:16px;color:#fff}h2 small{color:#fff;font-size:.5em;display:block;margin-top:1em}a{display:inline-block;background:#fff;border-radius:20px;color:#379fd9;padding:10px;font-weight:600;border:2px #fff solid}a:focus,a:hover{color:#379fd9;border:2px #3085b5 solid;text-decoration:none}@media (max-width:576px){#anim-director>div,#anim-interactive>div,.anim>div{margin:0}}.anim>div{margin:30px;-webkit-transform-origin:left top;-moz-transform-origin:left top;transform-origin:left top;-webkit-transform:scale(.75);-moz-transform:scale(.75);transform:scale(.75)}#head-text{font-size:8rem;font-family:'Source Sans Pro';font-weight:200}.container{padding-top:4rem;padding-bottom:4rem;text-align:center}.keyframe{position:relative;width:392px;height:327px;overflow:hidden;border:1px solid #000}.keyframe div{position:absolute}h2{font-size:4rem}#head-logo svg{width:146px}#head{padding:16rem 0}pre{border:none;background-color:transparent;text-align:left}.anims-code{margin:5rem}.compose{background:rgba(0,0,0,.65);border-radius:4px}.compose pre{background:0 0}.compose-frame{width:230px;display:block;margin:0 auto}.compose-frame.top{margin-top:50px}.compose-frame.bottom{margin-top:160px}h2{margin:4rem}</style></head><body><div id="head" class="container"><div id="head-logo"><svg width="233px" height="143px" viewBox="0 0 233 143" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Header-Copy" transform="translate(-604.000000, -260.000000)" fill="#FFFFFF"><g id="Group-7" transform="translate(604.000000, 260.000000)"><g id="Group-3"><rect id="Rectangle-4" x="69.8657143" y="-2.84217094e-14" width="163.052108" height="23.1391586" rx="11.5695793"></rect><rect id="Rectangle-4" x="44.6364286" y="39.8507731" width="128.119251" height="23.1391586" rx="11.5695793"></rect><rect id="Rectangle-4" x="19.4071429" y="79.7015462" width="85.4235364" height="23.1391586" rx="11.5695793"></rect><rect id="Rectangle-4" x="0" y="119.552319" width="46.6092506" height="23.1391586" rx="11.5695793"></rect></g></g></g></g></svg><div id="head-text" class="row">flight</div><h3>Ultra Simple Animation Compositions for React</h3><h3><a href="https://github.com/jondot/react-flight">On Github &rarr;</a></h3></div></div><div id="anims" class="container"><div class="row">&mdash; Tap to interact &mdash;</div><div class="row"><div class="col-md-4"><div class="anim" id="anim1"></div></div><div class="col-md-4"><div class="anim" id="anim2"></div></div><div class="col-md-4"><div class="anim" id="anim3"></div></div></div></div><div class="container"><h2>Install.</h2><div class="row"><div id="anims-code"><pre><code class="language-markup">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <link rel="stylesheet" href="bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="prism.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Source+Sans+Pro:200,700" rel="stylesheet">
+    <style type="text/css" media="screen">
+      body { 
+        background-image: -webkit-linear-gradient(bottom, #48C9D0 0%, #3498DB 100%);
+        background-image: -o-linear-gradient(bottom, #48C9D0 0%, #3498DB 100%);
+        background-image: linear-gradient(to top, #48C9D0 0%, #3498DB 100%);
+        font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color:#fff;
+      }
+      h2 small{
+        color: #fff;
+        font-size:0.5em;
+        display:block;
+        margin-top:1em;
+      }
+a {
+    display: inline-block;
+    background: white;
+    border-radius: 20px;
+    color: #379fd9;
+    padding: 10px;
+    font-weight: 600;
+  border: 2px #fff solid;
+  }
+a:hover,
+a:focus {
+  color: #379fd9;
+  border: 2px #3085b5 solid;
+  text-decoration:none;
+
+}
+
+      @media (max-width: 576px) {
+        .anim>div, #anim-director>div, #anim-interactive>div  {
+          margin:0;
+         }
+      }
+
+      .anim>div{
+          margin: 30px;
+         -webkit-transform-origin:left top;
+         -moz-transform-origin:left top;
+         transform-origin:left top;
+         -webkit-transform: scale(0.75);
+         -moz-transform: scale(0.75);
+         transform: scale(0.75);
+       }
+      #head-text{
+          font-size:8rem;
+          font-family:'Source Sans Pro';
+          font-weight: 200;
+      }
+      .container { padding-top:4rem; padding-bottom: 4rem; text-align:center}
+      .keyframe{ position: relative; width: 392px; height: 327px; overflow: hidden; border: 1px solid #000;}
+      .keyframe div { position: absolute;}
+      h2{
+        font-size: 4rem;
+      }
+      #head-logo svg{
+        width: 146px;
+      }
+      #head{
+        padding: 16rem 0;
+      }
+      pre{
+        border: none;
+        background-color:transparent;
+        text-align: left;
+      }
+      .anims-code{
+        margin: 5rem;
+      }
+      .compose{
+        background: rgba(0,0,0,0.65);
+        border-radius:4px;
+      }
+      .compose pre{
+        background: none;
+      }
+      .compose-frame{
+        width: 230px;
+        display:block;
+        margin:0 auto;
+      }
+      .compose-frame.top{
+        margin-top:50px;
+      }
+      .compose-frame.bottom{
+        margin-top:160px;
+      }
+      h2{
+        margin: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="head" class="container">
+          <div id="head-logo">
+            <svg width="233px" height="143px" viewBox="0 0 233 143" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Header-Copy" transform="translate(-604.000000, -260.000000)" fill="#FFFFFF">
+                        <g id="Group-7" transform="translate(604.000000, 260.000000)">
+                            <g id="Group-3">
+                                <rect id="Rectangle-4" x="69.8657143" y="-2.84217094e-14" width="163.052108" height="23.1391586" rx="11.5695793"></rect>
+                                <rect id="Rectangle-4" x="44.6364286" y="39.8507731" width="128.119251" height="23.1391586" rx="11.5695793"></rect>
+                                <rect id="Rectangle-4" x="19.4071429" y="79.7015462" width="85.4235364" height="23.1391586" rx="11.5695793"></rect>
+                                <rect id="Rectangle-4" x="0" y="119.552319" width="46.6092506" height="23.1391586" rx="11.5695793"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+
+          <div id="head-text" class="row">
+              flight
+          </div>
+              <h3>
+                Ultra Simple Animation Compositions for React
+              </h3>
+              <h3>
+              <a href="https://github.com/jondot/react-flight">On Github &rarr;</a>
+            </h3>
+          </div>
+      </div>
+      <div id="anims" class="container">
+        <div class="row">&mdash; Tap to interact &mdash;</div>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="anim" id="anim1">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="anim" id="anim2">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="anim" id="anim3">
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <h2>Install.</h2>
+          <div class="row">
+            <div id="anims-code">
+              <pre><code class="language-markup">
 $ yarn install react-flight
-              </code></pre></div></div></div><div class="container"><h2>Compose. <small>Place elements onto frames (two or more) with React <em>or</em> DOM. The rest is magic.</small></h2><h4></h4><div class="row compose"><div class="col-md-6"><pre><code class="language-jsx">&lt;Flight interactive>
+              </pre></code>
+            </div>
+          </div>
+      </div>
+
+      <div class="container">
+        <h2>Compose.
+          <small>Place elements onto frames (two or more) with React <em>or</em> DOM. The rest is magic.</small>
+        </h2>
+          <h4>
+          </h4>
+          <div class="row compose">
+              <div class="col-md-6">
+                <pre><code class="language-jsx">&lt;Flight interactive>
   &lt;Flight.Frame duration={300} source>
     &lt;div className="keyframe">
       &lt;Rect
@@ -48,10 +225,67 @@ $ yarn install react-flight
         }} />
     &lt;/div>
   &lt;/Flight.Frame>
-&lt;/Flight></code></pre></div><div class="col-md-6"><img class="compose-frame top" src="frame1.png" alt=""/> <img class="compose-frame bottom" src="frame2.png" alt=""/></div></div></div><div class="container"><h2>And Run.</h2><div class="row"><div class="col-md-6"><div class="anim" id="anim-interactive"></div></div><div class="col-md-6"><h3>Interactive</h3><pre><code class="language-jsx">&lt;Flight interactive>
+&lt;/Flight></code></pre>
+              </div>
+              <div class="col-md-6">
+                <img class="compose-frame top" src="frame1.png" alt=""/>
+                <img class="compose-frame bottom" src="frame2.png" alt=""/>
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <h2>And Run.</h2>
+          <div class="row">
+              <div class="col-md-6">
+                <div class="anim" id="anim-interactive"></div>
+              </div>
+              <div class="col-md-6">
+                <h3>Interactive</h3>
+                <pre><code class="language-jsx">&lt;Flight interactive>
   &lt;Flight.Frame duration={300}>
     &lt;AppBar />
-    ...</code></pre></div></div><div class="row"><div class="col-md-6"><div class="anim" id="anim-director"></div></div><div class="col-md-6"><h3>Or via Flight Director API</h3><pre><code class="language-jsx">&lt;Rect
+    ...</code></pre>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6">
+                <div class="anim" id="anim-director"></div>
+              </div>
+              <div class="col-md-6">
+                <h3>Or via Flight Director API</h3>
+                <pre><code class="language-jsx">&lt;Rect
   className={name}
   onClick={()=>this.flight.play()}
-/&gt;</code></pre></div></div></div><script src="prism.js"></script><script type="text/javascript" src="/static/js/main.a0a6f0a2.js"></script></body></html>
+/&gt;</code></pre>
+              </div>
+          </div>
+        </div>
+
+
+
+
+    <script src="prism.js"></script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-7131053-21', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
