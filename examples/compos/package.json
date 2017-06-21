@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
-    "react-flight": "git+ssh://git@bitbucket.org/jondot/react-flight.git"
+    "react-flight": "git+ssh://git@github.com/jondot/react-flight.git"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
