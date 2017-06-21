@@ -61,7 +61,7 @@ Fork, implement, add tests, pull request, get my everlasting thanks and a respec
 
 ### Thanks:
 
-To all [Contributors](https://github.com/jondot/foobanzle/graphs/contributors) - you make this happen, thanks!
+To all [Contributors](https://github.com/jondot/react-flight/graphs/contributors) - you make this happen, thanks!
 
 
 # Copyright
