@@ -2,3 +2,4 @@ language: node_js
 node_js:
   - "6.0"
   - "7.0"
+script: yarn build && yarn test

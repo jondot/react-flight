@@ -1,6 +1,8 @@
 ![](media/flight.png)
 [http://react-flight.io](http://react-flight.io)
 
+<img src="https://travis-ci.org/jondot/react-flight.svg?branch=master">
+
 The best way to build animation compositions for React. Design and compose a
 component to start with, a component to end with, and Flight will take it from
 there.
