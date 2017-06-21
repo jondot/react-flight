@@ -7,8 +7,8 @@
     "build:lib": "./node_modules/.bin/babel src --out-dir . && rm -rf __tests__",
     "build:umd:min": "NODE_ENV=production ./node_modules/.bin/webpack --display-modules",
     "build:umd": "NODE_ENV=development ./node_modules/.bin/webpack --display-modules",
-    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
-    "release": "npm run build && npm publish",
+    "build": "yarn build:lib && yarn build:umd && yarn build:umd:min",
+    "release": "yarn build && yarn publish",
     "test": "node ./node_modules/.bin/jest",
     "watch": "node ./node_modules/.bin/jest --watch"
   },
