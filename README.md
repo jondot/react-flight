@@ -35,8 +35,13 @@ $ curl https://raw.githubusercontent.com/jondot/react-flight/master/examples/com
 And now you can frame your compositions in `anim.js`, require and place it in
 any other React component.
 
-_NOTE_: You'll have to add a jQuery-esque library (such as jQuery, jQuery-slim, Zepto,
-etc). Currently that is a requirement of one of `react-flight`'s dependencies.
+Next:
+
+1. Add jQuery (or Zepto, or any jQuery drop-in) if you don't have it already in the project.
+2. Or if you use `create-react-app` you can add it to your `public/index.html`, [like here](examples/compos/public/index.html),
+or eject and [configure webpack](https://webpack.github.io/docs/library-and-externals.html) for jQuery.
+
+_NOTE_: jQuery is currently a requirement of one of `react-flight`'s dependencies.
 We plan to rebuild that dependency any way, obsoleting this requirement in the
 process (also: PRs accepted!).
 
