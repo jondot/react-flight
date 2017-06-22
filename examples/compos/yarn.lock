@@ -4821,9 +4821,9 @@ react-error-overlay@^1.0.7:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-"react-flight@git+ssh://git@bitbucket.org/jondot/react-flight.git":
-  version "1.0.0"
-  resolved "git+ssh://git@bitbucket.org/jondot/react-flight.git#e016c16de67d28ac3a8eceb15a9784fe3f0be877"
+"react-flight@https://github.com/jondot/react-flight.git":
+  version "1.0.1"
+  resolved "https://github.com/jondot/react-flight.git#a70ff14f7f2814d0032ca871fbc4f2d14d766aa2"
   dependencies:
     lodash "^4.17.2"
     prop-types "^15.5.10"

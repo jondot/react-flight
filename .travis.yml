@@ -3,4 +3,4 @@ node_js:
   - "6.0"
   - "7.0"
   - "8.0"
-script: yarn build && yarn test
+script: yarn build && yarn test && cd examples/compos && yarn
