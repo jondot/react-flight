@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
-import Flight, { Rect, Oval } from 'react-flight/dom'
-import PropTypes from 'prop-types'
+import Flight, { Rect } from 'react-flight/dom'
 
 class App extends Component {
   render() {
