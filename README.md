@@ -45,6 +45,61 @@ _NOTE_: jQuery is currently a requirement of one of `react-flight`'s dependencie
 We plan to rebuild that dependency any way, obsoleting this requirement in the
 process (also: PRs accepted!).
 
+## Workflow
+
+When you're designing compositions, focus on designing frames. The
+first frame is marked `source` because that's the starting point, and
+`interactive` because you want to play with it while you go.
+
+```jsx
+  <Flight interactive ref={flight => (this.flight = flight)}>
+    <Flight.Frame duration={300} source interactive showFrames>
+```
+
+### Showing Frames
+
+While designing, you want to have `showFrames` on. It will unpack
+all of the frames in front of you, so you could edit them while watching them. With
+Webpack hot-reload this becomes a fantastic experience.
+
+When done, remove `showFrames`.
+
+### Controlling Flight Directly
+
+This is where the `ref` addition comes in:
+
+```jsx
+  <Flight interactive ref={flight => (this.flight = flight)}>
+    <Flight.Frame duration={300} source interactive showFrames>
+```
+
+Once you can grab an instance of `flight` you can `flight.play()` and `flight.reset()` on
+demand from your own components and actions.
+
+Here's a full layout:
+
+```jsx
+  <Flight interactive ref={flight => (this.flight = flight)}>
+    <Flight.Frame duration={300} source interactive showFrames>
+
+      -- your own DOM / React Components ---
+      -- starting position and styles    ---
+
+    </Flight.Frame>
+
+    <Flight.Frame>
+
+      -- your own DOM / React Components ---
+      -- ending position and styles    ---
+
+    </Flight.Frame>
+  </Flight>
+```
+
+
+
+
+
 ## Redux
 
 If you're using Redux, there's basic support for it. Basic in the sense that `react-flight` is not
