@@ -18,7 +18,7 @@ Just clone and use the example, built around `create-react-app`:
 
 ```
 $ git clone https://github.com/jondot/react-flight
-$ cd react-flight
+$ cd react-flight/examples/compos
 $ yarn && yarn start
 ```
 
