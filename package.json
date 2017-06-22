@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build:lib": "babel src --out-dir . && rm -rf __tests__",
-    "build:umd:min": "NODE_ENV=production webpack --display-modules",
-    "build:umd": "NODE_ENV=development webpack --display-modules",
+    "build:umd:min": "cross-env NODE_ENV=production webpack --display-modules",
+    "build:umd": "cross-env NODE_ENV=development webpack --display-modules",
     "build": "yarn build:lib && yarn build:umd && yarn build:umd:min",
     "release": "yarn juild && yarn publish",
     "test": "jest",
@@ -30,6 +30,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.16.0",
+    "cross-env": "~5.0.1",
     "enzyme": "^2.8.2",
     "jest": "^18.0.0",
     "react": "^15.5.4",
