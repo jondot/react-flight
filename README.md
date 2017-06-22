@@ -45,6 +45,29 @@ _NOTE_: jQuery is currently a requirement of one of `react-flight`'s dependencie
 We plan to rebuild that dependency any way, obsoleting this requirement in the
 process (also: PRs accepted!).
 
+## Redux
+
+If you're using Redux, there's basic support for it. Basic in the sense that `react-flight` is not
+going to handle deep renders of a stateful app with all its gotchas, so YMMV.
+
+You can check out [this Redux example](examples/compos-redux) for a fully working solution.
+
+
+For your app, you can enable Redux support by indicating inclusion of store before using the `Flight` component:
+
+```javascript
+Flight.contextTypes = {
+  store: PropTypes.object,
+}
+
+Flight.childContextTypes = {
+  ...Flight.childContextTypes,
+  store: PropTypes.object,
+}
+```
+
+
+
 ## Under the Hood
 
 If you want to hack on `react-flight`, here are some context to keep in mind.

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import VelocityComposer from './velocity-composer'
 import Director from './director'
 
-const flight = (Container, Controls) => {
+const flight = (Container, Controls, connector = _ => _) => {
   class Flight extends Component {
     constructor(props) {
       super(props)
@@ -11,7 +11,7 @@ const flight = (Container, Controls) => {
       this.state = {}
     }
     getChildContext() {
-      return { director: this.state.director }
+      return { ...this.context, director: this.state.director }
     }
     componentDidMount() {
       requestAnimationFrame(() => {
@@ -73,8 +73,8 @@ const flight = (Container, Controls) => {
   Frame.childContextTypes = {
     source: PropTypes.bool,
   }
-  Flight.Frame = Frame
-  return Flight
+  Flight.Frame = connector(Frame)
+  return connector(Flight)
 }
 
 export default flight

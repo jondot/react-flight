@@ -58,7 +58,7 @@ var _reduce2 = _interopRequireDefault(_reduce);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var walk = function walk(c) {
+var walk = function walk(root, c) {
   if (!c.props) {
     return [];
   }
@@ -83,7 +83,7 @@ var walk = function walk(c) {
         // source is a context field - synthesize it instead of
         // manufacturing a real context. It's OK because this
         // render goes to trash after we're done, and not the DOM.
-        (0, _extends3.default)({ source: true }, child.props), child.context);
+        (0, _extends3.default)({ source: true }, child.props), root.context);
         if ((0, _isFunction2.default)(renderable.render)) {
           resolvedChild = renderable.render();
         }
@@ -96,18 +96,18 @@ var walk = function walk(c) {
     if (resolvedChild.props && resolvedChild.props.className && resolvedChild.props.style) {
       var _styles = resolvedChild.props.style;
       var name = resolvedChild.props.className || resolvedChild.props.name;
-      return [(0, _defineProperty3.default)({}, name, { styles: [_styles], ref: resolvedChild, name: name })].concat((0, _toConsumableArray3.default)(walk(resolvedChild)));
+      return [(0, _defineProperty3.default)({}, name, { styles: [_styles], ref: resolvedChild, name: name })].concat((0, _toConsumableArray3.default)(walk(root, resolvedChild)));
     } else {
-      return walk(child);
+      return walk(root, child);
     }
   });
 };
-var styles = function styles(c) {
+var styles = function styles(root) {
   var extract = function extract(comp) {
-    return _merge2.default.apply(undefined, (0, _toConsumableArray3.default)((0, _flattenDeep2.default)(walk(comp))));
+    return _merge2.default.apply(undefined, (0, _toConsumableArray3.default)((0, _flattenDeep2.default)(walk(root, comp))));
   };
 
-  var extracts = _react.Children.toArray(c.props.children).map(extract);
+  var extracts = _react.Children.toArray(root.props.children).map(extract);
   return _mergeWith2.default.apply(undefined, (0, _toConsumableArray3.default)(extracts).concat([function (objValue, srcValue) {
     return {
       styles: objValue.styles.concat(srcValue.styles),

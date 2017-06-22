@@ -47,6 +47,10 @@ var _director2 = _interopRequireDefault(_director);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var flight = function flight(Container, Controls) {
+  var connector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (_) {
+    return _;
+  };
+
   var Flight = function (_Component) {
     (0, _inherits3.default)(Flight, _Component);
 
@@ -81,7 +85,7 @@ var flight = function flight(Container, Controls) {
     (0, _createClass3.default)(Flight, [{
       key: 'getChildContext',
       value: function getChildContext() {
-        return { director: this.state.director };
+        return (0, _extends3.default)({}, this.context, { director: this.state.director });
       }
     }, {
       key: 'componentDidMount',
@@ -149,8 +153,8 @@ var flight = function flight(Container, Controls) {
   Frame.childContextTypes = {
     source: _propTypes2.default.bool
   };
-  Flight.Frame = Frame;
-  return Flight;
+  Flight.Frame = connector(Frame);
+  return connector(Flight);
 };
 
 exports.default = flight;

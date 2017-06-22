@@ -6,7 +6,7 @@ import map from 'lodash/map'
 import isFunction from 'lodash/isFunction'
 import reduce from 'lodash/reduce'
 
-const walk = c => {
+const walk = (root, c) => {
   if (!c.props) {
     return []
   }
@@ -32,7 +32,7 @@ const walk = c => {
           // manufacturing a real context. It's OK because this
           // render goes to trash after we're done, and not the DOM.
           { source: true, ...child.props },
-          child.context
+          root.context
         )
         if (isFunction(renderable.render)) {
           resolvedChild = renderable.render()
@@ -52,17 +52,17 @@ const walk = c => {
       const name = resolvedChild.props.className || resolvedChild.props.name
       return [
         { [name]: { styles: [styles], ref: resolvedChild, name } },
-        ...walk(resolvedChild),
+        ...walk(root, resolvedChild),
       ]
     } else {
-      return walk(child)
+      return walk(root, child)
     }
   })
 }
-const styles = c => {
-  const extract = comp => merge(...flattenDeep(walk(comp)))
+const styles = root => {
+  const extract = comp => merge(...flattenDeep(walk(root, comp)))
 
-  const extracts = Children.toArray(c.props.children).map(extract)
+  const extracts = Children.toArray(root.props.children).map(extract)
   return mergeWith(...extracts, (objValue, srcValue) => ({
     styles: objValue.styles.concat(srcValue.styles),
     ref: objValue.ref,

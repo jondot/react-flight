@@ -2921,7 +2921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var walk = function walk(c) {
+	var walk = function walk(root, c) {
 	  if (!c.props) {
 	    return [];
 	  }
@@ -2946,7 +2946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        // source is a context field - synthesize it instead of
 	        // manufacturing a real context. It's OK because this
 	        // render goes to trash after we're done, and not the DOM.
-	        (0, _extends3.default)({ source: true }, child.props), child.context);
+	        (0, _extends3.default)({ source: true }, child.props), root.context);
 	        if ((0, _isFunction2.default)(renderable.render)) {
 	          resolvedChild = renderable.render();
 	        }
@@ -2959,18 +2959,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (resolvedChild.props && resolvedChild.props.className && resolvedChild.props.style) {
 	      var _styles = resolvedChild.props.style;
 	      var name = resolvedChild.props.className || resolvedChild.props.name;
-	      return [(0, _defineProperty3.default)({}, name, { styles: [_styles], ref: resolvedChild, name: name })].concat((0, _toConsumableArray3.default)(walk(resolvedChild)));
+	      return [(0, _defineProperty3.default)({}, name, { styles: [_styles], ref: resolvedChild, name: name })].concat((0, _toConsumableArray3.default)(walk(root, resolvedChild)));
 	    } else {
-	      return walk(child);
+	      return walk(root, child);
 	    }
 	  });
 	};
-	var styles = function styles(c) {
+	var styles = function styles(root) {
 	  var extract = function extract(comp) {
-	    return _merge2.default.apply(undefined, (0, _toConsumableArray3.default)((0, _flattenDeep2.default)(walk(comp))));
+	    return _merge2.default.apply(undefined, (0, _toConsumableArray3.default)((0, _flattenDeep2.default)(walk(root, comp))));
 	  };
 
-	  var extracts = _react.Children.toArray(c.props.children).map(extract);
+	  var extracts = _react.Children.toArray(root.props.children).map(extract);
 	  return _mergeWith2.default.apply(undefined, (0, _toConsumableArray3.default)(extracts).concat([function (objValue, srcValue) {
 	    return {
 	      styles: objValue.styles.concat(srcValue.styles),
@@ -3096,6 +3096,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var flight = function flight(Container, Controls) {
+	  var connector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (_) {
+	    return _;
+	  };
+
 	  var Flight = function (_Component) {
 	    (0, _inherits3.default)(Flight, _Component);
 
@@ -3130,7 +3134,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _createClass3.default)(Flight, [{
 	      key: 'getChildContext',
 	      value: function getChildContext() {
-	        return { director: this.state.director };
+	        return (0, _extends3.default)({}, this.context, { director: this.state.director });
 	      }
 	    }, {
 	      key: 'componentDidMount',
@@ -3198,8 +3202,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Frame.childContextTypes = {
 	    source: _propTypes2.default.bool
 	  };
-	  Flight.Frame = Frame;
-	  return Flight;
+	  Flight.Frame = connector(Frame);
+	  return connector(Flight);
 	};
 
 	exports.default = flight;

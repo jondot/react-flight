@@ -1,11 +1,14 @@
 {
-  "name": "compose",
+  "name": "compose-redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
-    "react-flight": "^1.0.2"
+    "react-flight": "^1.0.2",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
@@ -14,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "add-redux": "add-redux"
   }
 }
