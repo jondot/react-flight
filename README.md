@@ -29,7 +29,7 @@ With yarn (or npm):
 
 ```
 $ yarn add react-flight
-$ curl https://raw.githubusercontent.com/jondot/react-flight/examples/compos/src/index.js -o src/anim.js
+$ curl https://raw.githubusercontent.com/jondot/react-flight/master/examples/compos/src/index.js -o src/anim.js
 ```
 
 And now you can frame your compositions in `anim.js`, require and place it in
