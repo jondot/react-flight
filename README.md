@@ -12,7 +12,14 @@ for Sketch compositions - the fastest, most friction free way to compose and an
 effortless way to animate an idea, an interaction, or a short movie-like
 composition in a self-contained widget (a React component after all).
 
-NEW: For video, check out [React Flight in Three Minutes](https://youtu.be/HBEn-KN_u04).
+
+Check out the new video:
+<br/>
+<a href="https://youtu.be/HBEn-KN_u04">
+<img src="https://i.ytimg.com/vi/HBEn-KN_u04/hqdefault.jpg" width="240"/>
+<br/>
+React Flight in Three Minutes
+</a>
 
 ## Quick Start (From Scratch)
 
