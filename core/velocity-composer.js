@@ -20,13 +20,18 @@ var _map = require('lodash/map');
 
 var _map2 = _interopRequireDefault(_map);
 
-var _velocity = require('tweene/velocity');
+var _velocity = require('../vendor/tweene-flight/velocity');
 
 var _velocity2 = _interopRequireDefault(_velocity);
 
+var _jquerySlim = require('jquery-slim');
+
+var _jquerySlim2 = _interopRequireDefault(_jquerySlim);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_velocity2.default.defaultDriver = 'velocity';
+var Tweene = (0, _velocity2.default)({ jQuery: _jquerySlim2.default, $: _jquerySlim2.default });
+Tweene.defaultDriver = 'velocity';
 
 var VelocityComposer = function () {
   function VelocityComposer(movements) {
@@ -41,13 +46,13 @@ var VelocityComposer = function () {
       var timelines = (0, _map2.default)(movements, function (movement) {
         return (0, _reduce2.default)(movement, function (timeline, step) {
           if (step.target) {
-            timeline.add(_velocity2.default.to('#' + step.root.namespace + ' #' + step.target.name, step.target.style, {
+            timeline.add(Tweene.to('#' + step.root.namespace + ' #' + step.target.name, step.target.style, {
               duration: step.duration,
               paused: true
             }));
           }
           return timeline;
-        }, _velocity2.default.line());
+        }, Tweene.line());
       });
       return timelines;
     }

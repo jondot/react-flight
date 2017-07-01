@@ -1,6 +1,8 @@
 import reduce from 'lodash/reduce'
 import map from 'lodash/map'
-import Tweene from 'tweene/velocity'
+import TweeneBuilder from '../vendor/tweene-flight/velocity'
+import jQuery from 'jquery-slim'
+const Tweene = TweeneBuilder({ jQuery: jQuery, $: jQuery })
 Tweene.defaultDriver = 'velocity'
 
 export default class VelocityComposer {

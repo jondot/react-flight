@@ -1,6 +1,6 @@
 {
   "name": "react-flight",
-  "version": "1.0.2",
+  "version": "2.0.0-next",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
@@ -13,9 +13,9 @@
     "watch": "jest --watch"
   },
   "dependencies": {
+    "jquery-slim": "^3.0.0",
     "lodash": "^4.17.2",
     "prop-types": "^15.5.10",
-    "tweene": "^0.5.11",
     "velocity-animate": "^1.5.0"
   },
   "devDependencies": {
