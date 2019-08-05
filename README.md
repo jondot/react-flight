@@ -1,5 +1,5 @@
 ![](media/flight.png)
-[http://react-flight.io](http://react-flight.io)
+[https://jondot.github.io/react-flight/](https://jondot.github.io/react-flight/)
 
 <img src="https://travis-ci.org/jondot/react-flight.svg?branch=master">
 
