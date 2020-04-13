@@ -109,6 +109,56 @@ Here's a full layout:
 
 
 
+## Next.js
+
+If instead of CRA, you're using Next.js, react-flight will still work, but you need to import the animations on the client side only. Because Next.js tries to render the components on the server side, `window` won't be available to react-flight, causing an error.
+
+So, on your page file (or the parent component right above the component you're using `<Flight>`), instead of:
+
+```javascript
+// WRONG USE
+import MyAnimatedComponent from '../MyAnimatedComponent'
+const MyPage = () => {
+  return (
+    <>
+    	<MyAnimatedComponent />
+    </>
+  )
+}
+```
+
+You should use Next.js [dynamic-import](https://nextjs.org/docs/advanced-features/dynamic-import):
+
+```javascript
+const MyAnimatedComponent = dynamic(() => import('../MyAnimatedComponent'), { ssr: false })
+const MyPage = () => {
+  return (
+    <>
+      <MyAnimatedComponent />
+    </>
+  )
+}
+```
+
+Or [NoSSR](https://www.npmjs.com/package/react-no-ssr)
+
+```javascript
+import MyAnimatedComponent from '../MyAnimatedComponent'
+const MyPage = () => {
+  return (
+    <>
+  	  <NoSSR onSSR={<Loading />}>
+    	  <MyAnimatedComponent />
+	    </NoSSR>
+    </>
+  )
+}
+```
+
+
+
+
+
 ## Redux
 
 If you're using Redux, there's basic support for it. Basic in the sense that `react-flight` is not
