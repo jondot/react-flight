@@ -13,7 +13,7 @@
     "watch": "jest --watch"
   },
   "dependencies": {
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.21",
     "prop-types": "^15.5.10",
     "tweene": "^0.5.11",
     "velocity-animate": "^1.5.0"
